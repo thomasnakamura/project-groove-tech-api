@@ -15,7 +15,7 @@ export class CustomerController {
             if(typeof request.customer_key != 'number' ){ 
                 response.status(400).send('Customer_key precisa ser um número!')
             } else if(typeof request.customer_name != 'string' ){   
-                response.status(400).send('Customer_key precisa ser um número!')
+                response.status(400).send('Customer_name precisa ser um nome!')
             } else {
                 const postCustomer = await this.customerService.postCustomer(request)
                 return response.status(200).send(postCustomer)
@@ -26,7 +26,7 @@ export class CustomerController {
         if(typeof request.customer_key != 'number' ){   
             response.status(400).send('Customer_key precisa ser um número!')
         } else if(typeof request.customer_name != 'string' ){   
-            response.status(400).send('Customer_key precisa ser um número!')
+            response.status(400).send('Customer_name precisa ser um nome!')
         } else {
             if(!isUuid(id)){
                 response.status(400).send("ID inválido")
